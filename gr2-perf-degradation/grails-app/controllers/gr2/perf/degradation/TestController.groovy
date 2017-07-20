@@ -2,11 +2,13 @@ package gr2.perf.degradation
 
 class TestController {
 
+    static ids
+
     def index() {}
 
     def loadWithGet() {
         render time {
-            BootStrap.ids.each {
+            ids.each {
                 Foo.get(it)
             }
         }
@@ -14,12 +16,11 @@ class TestController {
 
     def loadWithRead() {
         render time {
-            BootStrap.ids.each {
+            ids.each {
                 Foo.read(it)
             }
         }
     }
-
 
     private def time(Closure cl) {
         long start = System.currentTimeMillis()

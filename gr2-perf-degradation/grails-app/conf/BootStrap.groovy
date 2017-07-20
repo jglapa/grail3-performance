@@ -1,8 +1,7 @@
 import gr2.perf.degradation.Foo
+import gr2.perf.degradation.TestController
 
 class BootStrap {
-
-    static ids
 
     def init = { servletContext ->
 
@@ -10,7 +9,7 @@ class BootStrap {
             new Foo(foo: it as String, bar: it * 2 as String, baz: it * 3 as String).save()
         }
 
-        ids = Foo.all.collect{it.id}
+        TestController.ids = Foo.all.collect{it.id}
 
     }
     def destroy = {
